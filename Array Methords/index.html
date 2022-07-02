@@ -110,7 +110,7 @@
         const lastGuy = a.passed - a.year;
         const nextGuy = b.passed - b.year;
 
-        return lastGuy > nextGuy ? -1 : 1;                   
+        return lastGuy > nextGuy ? -1 : 1;
       });
 
       console.table(sortByAge);
@@ -154,7 +154,7 @@
       ];
 
       const transportation = data.reduce(function (obj, item) {
-        // checking if object not has item as key 
+        // checking if object not has item as key
         if (!obj[item]) {
           obj[item] = 0;
         }
@@ -163,6 +163,51 @@
       }, {});
 
       console.log(transportation);
+
+      const peoples = [
+        { name: "Wes", year: 1988 },
+        { name: "Kait", year: 1986 },
+        { name: "Irv", year: 1970 },
+        { name: "Lux", year: 2015 },
+      ];
+
+      const comments = [
+        { text: "Love this!", id: 523423 },
+        { text: "Super good", id: 823423 },
+        { text: "You are the best", id: 2039842 },
+        { text: "Ramen is my fav food ever", id: 123523 },
+        { text: "Nice Nice Nice!", id: 542328 },
+      ];
+
+      const isAnyOneAdult = peoples.some(
+        (person) => new Date().getFullYear() - person.year >= 18
+      );
+
+      console.log(isAnyOneAdult);
+
+      const isEveryOneAdult = peoples.every(
+        (person) => new Date().getFullYear() - person.year >= 18
+      );
+
+      console.log(isEveryOneAdult);
+
+      const comment = comments.find((comment) => comment.id === 823423);
+
+      console.log(comment);
+
+      const indexOfComments = comments.findIndex(
+        (comment) => comment.id === 823423
+      );
+
+      console.log(indexOfComments);
+
+      const newComments = [
+        ...comments.slice(0, indexOfComments),
+        ...comments.slice(indexOfComments + 1),
+      ];
+
+      console.log(newComments);
+
     </script>
   </body>
 </html>
